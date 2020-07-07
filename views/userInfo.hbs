@@ -1,0 +1,25 @@
+{{!-- USER INFO --}}
+
+<h1>Update User</h1>
+
+</form>
+
+<form action="/users/update" method="POST" style="width: 450px;margin:auto">
+
+    <input type="text" name="id" id="id" value="{{user.id}}">
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="{{user.name}}" class="form-control">
+
+    <label for="name">email</label>
+    <input type="text" name="email" id="email" value="{{user.email}}" class="form-control" disabled>
+
+    <label for="name">password</label>
+    <input type="text" name="password" id="password" value="{{user.password}}" class="form-control" required>
+
+
+    <button type="submit" class="btn btn-primary mt-2 p-1">update</button>
+
+</form>
+
+

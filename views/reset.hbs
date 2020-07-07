@@ -1,0 +1,29 @@
+<h1>Update User</h1>
+
+</form>
+
+<form action="/users/update" method="POST" style="width: 450px;margin:auto">
+
+    <input type="hidden" name="id" id="id" value="{{user.id}}">
+
+
+    <input type="hidden" name="name" id="name" value="{{user.name}}" class="form-control">
+
+    <label for="name"> Your email</label>
+    <input type="text" name="email" id="email" value="{{user.email}}" class="form-control" disabled>
+
+    <label for="name">New password</label>
+    <input type="text" name="password" id="password" value=" " class="form-control">
+
+
+    <button type="submit" class="btn btn-primary mt-2 p-1">Generate password</button>
+
+</form>
+
+
+
+<style>
+    .form-control:disabled {
+        background-color: pink;
+    }
+</style>

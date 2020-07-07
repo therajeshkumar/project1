@@ -1,0 +1,180 @@
+{{!-- ADMIN --}}
+<div class="row bg-warning mt-5">
+    <div class="col-xs-12 col-sm-12 col-md-3">
+        <h5 class="text-center"> Add new User</h5>
+
+        <form action="/users/register" method="POST">
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+
+            <label for="name">email</label>
+            <input type="text" name="email" id="email" class="form-control" required>
+
+            <label for="name">password</label>
+            <input type="text" name="password" id="password" class="form-control" required>
+            <button type="submit" class="btn btn-primary mt-3">Add User</button>
+
+        </form>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 table-sm">
+        <h5 class="text-center"> Users List</h5>
+        <table border="1" class="table table-responsive-sm table-striped bg-warning">
+
+            <thead>
+                <tr>
+                    <td class=" d-none d-md-block"> Id</td>
+                    <td> name</td>
+                    <td> email</td>
+                    <td> password</td>
+                    <td>action</td>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                {{# each user}}
+                <tr>
+                    <td class=" d-none d-md-block"> {{id}}</td>
+                    <td> {{name}}</td>
+                    <td> {{email}}</td>
+                    <td> {{password}}</td>
+                    <td>
+                        <a class="btn btn-primary " href="/users/{{id}}">edit</a>
+                        <a class="btn btn-danger" href="/users/delete/{{id}}">delete</a>
+
+                    </td>
+
+
+                </tr>
+                {{/each}}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="row mt-5 bg-warning">
+
+    <div class="col-xs-12 col-md-3">
+        <h5 class="text-center"> Product Form</h5>
+        <form action="/products" enctype="multipart/form-data" method="POST" </form>
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control">
+            <label for="price">price</label>
+            <input type="text" name="price" id="price" class="form-control">
+            {{!-- <label for="images">Select photo </label> --}}
+            <input type="file" name="photo" class="form-control mt-4" id="photo">
+            <button type="submit" class="btn btn-primary mt-3 pt-2">add Product </button>
+        </form>
+    </div>
+
+    <div class="col-xs-12 col-md-9">
+        <h5 class="text-center"> Product List</h5>
+        <table border="1" class="table table-responsive-sm table-striped bg-warning">
+            <thead>
+                <tr>
+                    <td> Id</td>
+                    <td> name</td>
+                    <td> price</td>
+                    <td> Photo</td>
+                    <td>action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each product}}
+                <tr>
+                    <td> {{_id}}</td>
+                    <td> {{name}}</td>
+                    <td> {{price}}</td>
+
+
+                    <td> <img src="uploads/{{photo}}" class="border-warning" height="70px" width="70px">
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/products/{{_id}}">edit</a>
+
+                        <a class="btn btn-danger" href="/products/delete/{{_id}}">delete</a>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{{!-- Order form --}}
+<div class="row bg-warning mt-5 mb-5">
+    <div class="col-xs-12 col-md-3">
+        <h5 class="text-center"> Order Form</h5>
+
+        <form action="/orders" method="POST">
+
+            <label for="name">ProductId</label>
+            <input type="text" name="_id" id="id" class="form-control">
+            <label for="price">quantity</label>
+            <input type="text" name="quantity" id="quantity" class="form-control">
+
+            <button type="submit" class="btn btn-primary mt-3 mb-5">Place Order</button>
+
+
+        </form>
+    </div>
+
+
+    <div class="col-xs-12 col-md-9 mb-5">
+        <h5 class="text-center"> Order List</h5>
+        <table border="1" class="table table-responsive-sm table-striped bg-warning">
+
+            <thead>
+                <tr>
+                    <td> OrderId</td>
+                    <td> quantity</td>
+
+                    <td class=" d-none d-md-block"> Product</td>
+                    <td> Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each order}}
+                <tr>
+                    <td> {{_id}}</td>
+                    <td> {{quantity}}</td>
+
+                    <td class=" d-none d-md-block"> {{product}}
+
+                    </td>
+                    <td> <a href="/orders/{{_id}}" class="btn btn-primary">edit</a>
+                        <a href="/orders/delete/{{_id}}" class="btn btn-danger">delete</a>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <section>
+
+        <h1>Reset password</h1>
+
+        <form action="users/reset" method="post">
+
+            <input type="text" name="email" placeholder="user email" required>
+            <button>forget password</button>
+
+        </form>
+    </section>

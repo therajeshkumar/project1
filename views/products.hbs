@@ -1,0 +1,33 @@
+<div class="row">
+    {{# each product}}
+    <div class="card card-shadow-sm mt-4 mr-auto border-warning">
+        <img src="uploads/{{photo}}" alt="" class="card-img-top" style="height: 8rem;">
+        <div class="card-body">
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+
+            <span class="d-block text-secondary">{{name}}</span>
+            <span class="d-block text-secondary">{{price}}.00</span>
+
+
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+                <a href="/cart" style="color: inherit;">
+                    Buy
+                </a>
+            </button>
+            <button id="addtocart" type="submit" class="btn btn-sm btn-outline-secondary" onclick="hideButton()">
+                <a style="color: inherit;">Add to cart
+                </a>
+            </button>
+
+
+        </div>
+
+
+
+    </div>
+    {{/each}}
+</div>

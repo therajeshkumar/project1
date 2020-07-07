@@ -1,0 +1,14 @@
+{{order.quantity}}
+<h1> Order Update Form</h1>
+
+<form action="/orders/update" method="POST" style="width: 450px;margin:auto">
+
+    <label for="name">OrderId</label>
+    <input type="text" name="_id" id="_id" value="{{order._id}}" class="form-control">
+    <label for="quantity">quantity</label>
+    <input type="text" name="quantity" id="quantity" value="{{order.quantity}}" class="form-control">
+    <label for="product">Product</label>
+    <input type="text" name="product" id="quantity" value="{{order.product}}" class="form-control">
+
+    <button type="submit" class="btn btn-default mt-3">Update</button>
+</form>
